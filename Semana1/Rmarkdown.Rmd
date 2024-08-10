@@ -1,0 +1,63 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
+---
+title: "default"
+author: "Luísa Vitória Leite Silva"
+date: "08/08/2024"
+output: html_document
+---
+# 1. Carregamento e Preparação dos Dados
+
+Este PDF tem como objetivo fazer uma analise exploratoria dos dados fornecidos pela empresa X, os conjunto de dados que vou usar nessa análise é:\
+
+__sku_status__: Disponibilidade histórica de SKU;\
+
+__sku_cost__: Custo de SKU por janela de data;\
+__sku_price__: Preço praticado de SKU por janela de data;\
+
+__employee__: Todos os funcionários com informações pessoais;\
+
+__store__: Todas as lojas com as informações dos vendedores ;\
+
+__transactions__: Todas as transações da CosmeticsCo para um determinado
+período.\
+
+
+
+# 2. Resumo Estatístico e Descrição dos Dados\
+__sku_status__:\
+- cod_prod: codigo do produto - num\
+- data_inicio: data de inicio do SKU - character\
+- data_fim: data fim do SKU - character\
+
+__sku_cost__:\
+- cod_prod: codigo do produto - num\
+- data_inicio: data de inicio do custo do produto - character\
+- data_fim: date de fim do custo do produto - character\
+- custo: custo do produto - num\
+
+__sku_price__:
+- cod_prod   : codigo do produto - num
+- data_inicio: data de inicio do custo do produto - character
+- data_fim   : data de fim do custo do produto - character
+- preco      : preco do produto - num
+
+__employee__:
+- id_employee: id do empregado - int
+- name: nome do empregado - character
+- surname: sobrenome do empregada - character
+- cpf: cpf dos empregados - character
+- status: status do empregado - character
+- role: que tipo de empregado - character
+- initial_date: data de inicio - character
+- end_date: data de fim - character
+- store_id: id das lojas - character
+
+
+
+
+
+

@@ -4,7 +4,7 @@ output:
   html_document: default
 ---
 ---
-title: "default"
+title: "Analise exploratoria"
 author: "Luísa Vitória Leite Silva"
 date: "08/08/2024"
 output: html_document
@@ -39,25 +39,86 @@ __sku_cost__:\
 - data_fim: date de fim do custo do produto - character\
 - custo: custo do produto - num\
 
-__sku_price__:
-- cod_prod   : codigo do produto - num
-- data_inicio: data de inicio do custo do produto - character
-- data_fim   : data de fim do custo do produto - character
-- preco      : preco do produto - num
+__sku_price__:\
+- cod_prod   : codigo do produto - num\
+- data_inicio: data de inicio do custo do produto - character\
+- data_fim   : data de fim do custo do produto - character\
+- preco      : preco do produto - num\
 
-__employee__:
-- id_employee: id do empregado - int
-- name: nome do empregado - character
-- surname: sobrenome do empregada - character
-- cpf: cpf dos empregados - character
-- status: status do empregado - character
-- role: que tipo de empregado - character
-- initial_date: data de inicio - character
-- end_date: data de fim - character
-- store_id: id das lojas - character
+__employee__:\
+- id_employee: id do empregado - int\
+- name: nome do empregado - character\
+- surname: sobrenome do empregada - character\
+- cpf: cpf dos empregados - character\
+- status: status do empregado - character\
+- role: que tipo de empregado - character\
+- initial_date: data de inicio - character\
+- end_date: data de fim - character\
+- store_id: id das lojas - character\
+
+__store__:\
+- month: mes e ano dos dados - character\
+- store_id: id da loja - character\
+- sales_target: meta de vendas - int\
+
+__transactions__:\
+- data: data como ano, mes e dia, mas nessa base de dados que estou usando so tem do ano de 2024 - character\
+- cod_vendedor: codigo do vendedor - int\
+- cod_loja: codigo da loja - character\
+- cod_transacao: codigo da transacao - character\
+- quantidade: quantidade de transacoes - int\
+- cod_prod: codigo do produto - num\
+- preco: preco do produto - num\
+
+# 3. Análise Univariada
+
+Nessa parte iremos fazer uma analise de um unico conjunto de dados que sera o transations mas precisamente o conjunto de 2024.
+
+## Discussão sobre Outliers
+
+### 1. Outliers na Variável `quantidade`
+Ao analisar a variável `quantidade`, observamos que a distribuição está majoritariamente concentrada em valores baixos, com a maior parte das transações envolvendo quantidades pequenas de produtos. Entretanto, foram identificados alguns outliers, representando transações com quantidades significativamente maiores do que a média.
+
+Esses outliers podem indicar pedidos especiais ou situações em que grandes quantidades de um produto foram compradas em uma única transação, o que pode ser esperado em contextos como vendas para revendedores ou compras corporativas. No entanto, também é possível que esses valores altos sejam resultado de erros de inserção de dados, onde uma quantidade maior foi registrada por engano. Para confirmar essa hipótese, seria necessário um exame mais detalhado dos dados associados a essas transações.
+
+### 2. Outliers na Variável `preco`
+A análise da variável `preco` revelou a presença de alguns outliers significativos. Esses outliers correspondem a preços muito superiores ou inferiores à média dos produtos vendidos.
+
+Outliers de preço alto podem indicar a venda de itens premium ou de maior valor agregado, como produtos de luxo ou tecnologias avançadas. Por outro lado, preços extremamente baixos podem sugerir itens em promoção, produtos com desconto ou até mesmo erros de precificação, como a omissão de dígitos ao registrar o preço. A identificação desses outliers é crucial para a empresa, pois pode ajudar a entender melhor a segmentação dos produtos e a avaliar a consistência dos processos de precificação.
+
+### Conclusão
+A presença de outliers em ambas as variáveis indica a necessidade de um exame mais cuidadoso dos dados. Para os outliers de quantidade, uma revisão dos registros das transações pode ser útil para verificar se essas quantidades refletem situações reais ou se há inconsistências. Para os outliers de preço, seria prudente investigar se esses valores refletem produtos únicos de alto valor, promoções agressivas, ou se são devidos a erros no sistema de precificação.
+
+A compreensão desses outliers pode fornecer insights valiosos sobre padrões de compra, comportamento do cliente e possíveis falhas no processo de coleta de dados. Além disso, ao lidar com esses outliers, pode ser necessário tomar decisões sobre sua inclusão ou exclusão nas análises subsequentes, dependendo do objetivo do estudo.
+
+# 4.Analise Bivariada
+
+Análise Bivariada do dataset transations, vou criar gráficos de dispersão (scatter plots) para explorar as relações entre as variáveis e, em seguida, calcular e visualizar a matriz de correlação entre as variáveis numéricas usando as funções cor() e corrplot().
 
 
+# 5.Analise Multivariada
 
+### Interpretação dos Resultados
 
+Após executar o código, você verá que:
 
+- **Variância Explicada**: O gráfico de barras da variância explicada mostrará quantos componentes principais são necessários para explicar a maior parte da variância dos dados. Normalmente, os primeiros componentes explicam a maior parte da variância, permitindo uma redução dimensional eficaz.
+- **Componentes Principais**: No gráfico de variáveis, você poderá visualizar quais variáveis contribuem mais para cada componente principal. No gráfico de observações, será possível identificar grupos de transações que se comportam de maneira semelhante em relação às variáveis selecionadas.
+
+# 6.Conclusão
+1. **Análise Univariada**:
+    - **Distribuições**: As variáveis `quantidade` e `preco` mostraram distribuições que refletem padrões de venda esperados, com maior concentração de transações em faixas específicas.
+    - **Outliers**: Foram identificados outliers significativos em ambas as variáveis. Esses outliers podem indicar transações incomuns, como compras em grandes quantidades ou produtos com preços significativamente diferentes do padrão, que merecem uma investigação mais profunda.
+2. **Análise Bivariada**:
+    - **Relação entre Variáveis**: Foi observado que há uma correlação moderada entre as variáveis `quantidade` e `preco`, o que sugere que, em algumas lojas, preços mais altos podem estar associados a compras em maior quantidade, ou vice-versa. As visualizações também destacaram diferenças entre as lojas em termos de volume de vendas e preços médios.
+3. **Análise Multivariada**:
+    - **PCA**: A Análise de Componentes Principais reduziu a dimensionalidade dos dados, capturando a maior parte da variância em poucos componentes principais. Isso permitiu identificar as principais direções de variação nos dados e os padrões subjacentes nas transações entre diferentes lojas.
+    
+# Discussão sobre Limitações e Possíveis Melhorias
+ Uma possível melhoria nessa analise exploratória seria traçar gráficos que consiga responder perguntas mas voltadas para o projeto como:
+- Qual é a projeção de vendas e remuneração dos vendedores e gerentes de lojas de acordo com os modelos de remuneração vigentes?
+- Quais são as recomendações de produtos que são frequentemente vendidos juntos (cross-sell)?
+- Quais produtos possuem maior margem de lucro?
+- Como os vendedores ou lojas se comparam entre si?
+- Existe um simulador de remuneração para vendedores e gerentes?
 

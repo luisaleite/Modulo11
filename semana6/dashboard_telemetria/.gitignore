@@ -1,0 +1,106 @@
+# Python
+*.pyc
+__pycache__/
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Byte-compiled / optimized / DLL files
+*.py[cod]
+*$py.class
+
+# Supabase
+supabase/.temp/
+supabase/.cache/
+.supabase/
+
+# ClickHouse
+clickhouse-backups/
+clickhouse-logs/
+
+# Docker
+docker-compose.yml
+.docker/
+docker-compose.override.yml
+*.log
+docker-compose.logs/
+*.tar
+docker-compose.yml
+
+# Streamlit
+.streamlit/
+*.db
+*/frontend/__pycache__/
+*/frontend/*.pyc
+
+# Log files
+*.log
+logs/
+*.pid
+
+# Local development logs and debugging artifacts
+*.log
+*.out
+*.err
+
+# Unit test / coverage reports
+.coverage
+*.cover
+.coverage.*
+nosetests.xml
+coverage.xml
+*.cache
+*.pytest_cache/
+pytest_cache/
+.tox/
+.pytest_cache/
+.jupyter/
+
+# Virtualenv
+pip-log.txt
+pip-delete-this-directory.txt
+htmlcov/
+
+# Editor directories and files
+.vscode/
+.idea/
+*.swp
+*.swo
+*.sublime-project
+*.sublime-workspace
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# PyCharm
+.idea/
+*.iml
+
+# Node.js
+node_modules/
+
+# Environment variables
+.env
+.env.local
+.env.test
+.env.production
+
+# Jupyter Notebooks
+.ipynb_checkpoints
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+
+# Miscellaneous
+*.bak
+*.swp
+*~

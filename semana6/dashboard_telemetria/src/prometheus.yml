@@ -1,0 +1,18 @@
+global:
+  scrape_interval: 15s  # How often to scrape targets
+
+scrape_configs:
+  # Supabase PostgreSQL Exporter
+  - job_name: 'supabase_postgres'
+    static_configs:
+      - targets: ['localhost:9187']
+
+  # Direct ClickHouse Scraping (without exporter)
+  - job_name: 'clickhouse_direct'
+    metrics_path: '/?query=SELECT%20*%20FROM%20system.metrics%20FORMAT%20JSONEachRow'
+    static_configs:
+      - targets: ['uhrjdiptqu.us-east-1.aws.clickhouse.cloud:8443']
+    scheme: 'https'
+    basic_auth:
+      username: 'default'
+      password: '~x.C7Lba1nwpF'

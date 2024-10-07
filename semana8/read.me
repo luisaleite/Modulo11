@@ -1,0 +1,20 @@
+Esse notebok usa o que foi feito em sala para conectar o sqlite com um dtaset do kaggle e introduz o perfect e mlflow
+
+Explicação:
+
+MLflow:
+
+O MLflow é configurado para registrar os parâmetros (sale_id) e métricas (price_y e quantity) de cada linha inserida no banco de dados. Isso permite rastrear esses valores e seus impactos de forma sistemática.
+O experimento é configurado usando mlflow.set_experiment(), e o rastreamento de cada execução é feito com mlflow.start_run().
+Prefect:
+
+O Prefect é usado para orquestrar o processo de inserção de dados no banco de dados.
+A função preencher_vendas() é transformada em uma tarefa (@task), e o fluxo principal (fluxo_vendas()) é definido como o fluxo de trabalho principal do Prefect.
+Para executar o fluxo, chamamos fluxo_vendas() dentro da estrutura condicional if __name__ == "__main__":.
+Benefícios dessa abordagem:
+MLflow: Facilita o rastreamento de experimentos, parâmetros, métricas e resultados.
+Prefect: Orquestra o processo de inserção de dados e permite fácil monitoramento e reexecução, além de facilitar a criação de fluxos complexos.
+Agora você pode rodar esse código para ter tanto o rastreamento de experimentos com MLflow quanto a orquestração do processo com Prefect.
+
+---
+
